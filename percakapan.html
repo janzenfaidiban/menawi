@@ -31,6 +31,8 @@
       overflow-y: auto;
       padding: 15px;
       background-color: #0b3b42;
+      display: flex;
+      flex-direction: column;
     }
 
     .message {
@@ -89,18 +91,75 @@
     <h5 class="mb-0 text-white">Percakapan</h5>
   </div>
 
-  <div class="d-flex flex-column chat-box">
-    <div class="message user">Halo</div>
-    <div class="message bot">Hi, selamat datang! Apa yang bisa saya bantu?</div>
-    <div class="message user">Perkenalkan diri Anda</div>
-    <div class="message bot">Okay, saya adalah asisten AI belajar Bahasa Menawi. Silahkan ajukan pertanyaan dan saya akan menjawab.</div>
-    <div class="message bot">...</div>
+  <div class="d-flex flex-column chat-box" id="chatBox">
+    <!-- Chat messages will be injected here -->
   </div>
 
   <div class="input-area">
-    <textarea class="form-control" rows="2" placeholder="Apa arti Ayah dalam Bahasa Menawi?"></textarea>
-    <button class="btn btn-send mt-2">Kirim</button>
+    <textarea class="form-control" id="inputMessage" rows="2" placeholder="Apa arti Ayah dalam Bahasa Menawi?"></textarea>
+    <button class="btn btn-send mt-2" onclick="sendMessage()">Kirim</button>
   </div>
+
+  <script>
+    const chatBox = document.getElementById('chatBox');
+    const inputMessage = document.getElementById('inputMessage');
+
+    // Bot balasan sederhana
+    const botReplies = {
+      'halo': 'Halo juga! Ada yang bisa saya bantu?',
+      'ayah': 'Dalam Bahasa Menawi, "ayah" bisa diterjemahkan sebagai "Dai".',
+      'ibu': 'Dalam Bahasa Menawi, "ibu" bisa disebut "Mane".',
+      'perkenalkan diri anda': 'Saya adalah asisten AI belajar Bahasa Menawi. Silahkan bertanya!',
+    };
+
+    // Load chat dari localStorage
+    function loadChat() {
+      const saved = localStorage.getItem('chatHistory');
+      if (saved) {
+        chatBox.innerHTML = '';
+        JSON.parse(saved).forEach(msg => {
+          addMessage(msg.text, msg.sender);
+        });
+      } else {
+        // pesan awal
+        addMessage('Halo', 'user');
+        addMessage('Hi, selamat datang! Apa yang bisa saya bantu?', 'bot');
+      }
+    }
+
+    function saveChat() {
+      const messages = [...chatBox.querySelectorAll('.message')].map(el => ({
+        text: el.textContent,
+        sender: el.classList.contains('user') ? 'user' : 'bot'
+      }));
+      localStorage.setItem('chatHistory', JSON.stringify(messages));
+    }
+
+    function addMessage(text, sender) {
+      const message = document.createElement('div');
+      message.classList.add('message', sender);
+      message.textContent = text;
+      chatBox.appendChild(message);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    function sendMessage() {
+      const userText = inputMessage.value.trim();
+      if (!userText) return;
+
+      addMessage(userText, 'user');
+      inputMessage.value = '';
+
+      setTimeout(() => {
+        const lower = userText.toLowerCase();
+        const reply = botReplies[lower] || 'Maaf, saya belum mengerti. Coba tanyakan hal lain.';
+        addMessage(reply, 'bot');
+        saveChat();
+      }, 500);
+    }
+
+    window.onload = loadChat;
+  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
