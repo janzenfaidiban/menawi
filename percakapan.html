@@ -112,6 +112,8 @@
     }
 
     // Muat riwayat chat dari localStorage
+    let trainingData = [];
+    
     async function loadChat() {
       try {
         const res = await fetch('training.json');
@@ -123,12 +125,14 @@
             addMessage(msg.content, 'user');
           } else if (msg.role === 'assistant') {
             addMessage(msg.content, 'bot');
+          } else if (msg.role === 'system') {
+            addMessage(msg.content, 'bot');
           }
         });
       } catch (error) {
         console.error('Gagal memuat training.json:', error);
         // fallback default
-        addMessage('Halo!', 'user');
+        // addMessage('Halo!', 'user');
         addMessage('Selamat datang di asisten belajar Bahasa Menawi. Silakan ajukan pertanyaan.', 'bot');
       }
     }

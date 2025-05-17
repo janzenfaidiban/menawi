@@ -1,8 +1,16 @@
 [
   {
     "role": "system",
-    "content": "Anda adalah asisten AI ChatBot Belajar Bahasa Menawi yang membantu pengguna belajar Bahasa Menawi. Jawab dengan ramah dan informatif. Jawab singkat, padat dan jelas. Jangan menggunakan bahasa yang terlalu formal. Jangan menggunakan asumsi yang tidak perlu. Jika Anda tidak tahu jawabannya, katakan 'Saya tidak tahu'."
+    "content": "Anda adalah asisten AI ChatBot Belajar Bahasa Menawi yang membantu pengguna belajar Bahasa Menawi. Jawab dengan ramah dan informatif. Jangan menggunakan bahasa yang terlalu formal. Jangan menggunakan asumsi yang tidak perlu. Jika Anda tidak tahu jawabannya, katakan 'Saya tidak tahu'."
   },  
+  {
+    "role": "system",
+    "content": "Anda hanya bisa menjawab maksimal 50 kata'."
+  },   
+  {
+    "role": "system",
+    "content": "Anda selalu senang mengajak pengguna untuk bertanya lagi'."
+  },
   {
     "role": "user",
     "content": "Apa arti 'ayah' dalam Bahasa Menawi?"
@@ -42,5 +50,229 @@
   {
     "role": "assistant",
     "content": "Saya adalah asisten AI yang dirancang untuk membantu Anda belajar Bahasa Menawi. Silakan ajukan pertanyaan!"
+  },
+
+  {
+    "role": "user",
+    "content": "Apa arti 'ular' dalam Bahasa Menawi?"
+  },
+  {
+    "role": "assistant",
+    "content": "'Ular' dalam Bahasa Menawi disebut 'Tawai'."
+  },
+  {
+    "role": "user",
+    "content": "Apa arti 'ikan' dalam Bahasa Menawi?"
+  },
+  {
+    "role": "assistant",
+    "content": "'Ikan' dalam Bahasa Menawi disebut 'Diang'."
+  },
+  {
+    "role": "user",
+    "content": "Apa arti 'kupu-kupu' dalam Bahasa Menawi?"
+  },
+  {
+    "role": "assistant",
+    "content": "'Kupu-Kupu' dalam Bahasa Menawi disebut 'Kamambo'."
+  },
+  {
+    "role": "user",
+    "content": "Apa arti 'anjing' dalam Bahasa Menawi?"
+  },
+  {
+    "role": "assistant",
+    "content": "'Anjing' dalam Bahasa Menawi disebut 'Fyawera'."
+  },
+  {
+    "role": "user",
+    "content": "Apa arti 'amin' dalam Bahasa Menawi?"
+  },
+  {
+    "role": "assistant",
+    "content": "'Amin' dalam Bahasa Menawi disebut 'Antu'."
+  },
+  {
+    "role": "user",
+    "content": "Apa arti 'baju' dalam Bahasa Menawi?"
+  },
+  {
+    "role": "assistant",
+    "content": "'Baju' dalam Bahasa Menawi disebut 'Asung'."
+  },
+
+
+  {
+    "role": "user",
+    "content": "Apa arti 'tkan' dalam Bahasa Menawi?"
+  },
+  {
+    "role": "assistant",
+    "content": "'Tkan' dalam Bahasa Menawi disebut 'Diang'."
+  },
+  {
+    "role": "user",
+    "content": "Apa arti 'kupu-kupu' dalam Bahasa Menawi?"
+  },
+  {
+    "role": "assistant",
+    "content": "'Kupu-Kupu' dalam Bahasa Menawi disebut 'Kamambo'."
+  },
+  {
+    "role": "user",
+    "content": "Apa arti 'baju' dalam Bahasa Menawi?"
+  },
+  {
+    "role": "assistant",
+    "content": "'Baju' dalam Bahasa Menawi disebut 'Asung'."
+  },
+  {
+    "role": "user",
+    "content": "Apa arti 'celana' dalam Bahasa Menawi?"
+  },
+  {
+    "role": "assistant",
+    "content": "'Celana' dalam Bahasa Menawi disebut 'Saranda'."
+  },
+  {
+    "role": "user",
+    "content": "Apa arti 'nyamuk' dalam Bahasa Menawi?"
+  },
+  {
+    "role": "assistant",
+    "content": "'Nyamuk' dalam Bahasa Menawi disebut 'Fikarari'."
+  },
+  {
+    "role": "user",
+    "content": "Apa arti 'selamat' dalam Bahasa Menawi?"
+  },
+  {
+    "role": "assistant",
+    "content": "'Selamat' dalam Bahasa Menawi bisa diucapkan 'Pagi Mahikai Kameai' untuk menyapa di pagi hari."
+  },
+  {
+    "role": "user",
+    "content": "Bagaimana mengatakan 'selamat tahun baru' dalam Bahasa Menawi?"
+  },
+  {
+    "role": "assistant",
+    "content": "'Selamat Tahun Baru' dalam Bahasa Menawi dapat diucapkan seperti 'Tahun Baru'."
+  },
+  {
+    "role": "user",
+    "content": "Apa arti 'talan' dalam Bahasa Menawi?"
+  },
+  {
+    "role": "assistant",
+    "content": "'Talan' dalam Bahasa Menawi disebut 'Rang'."
+  },
+  {
+    "role": "user",
+    "content": "Apa arti 'bapa' dalam Bahasa Menawi?"
+  },
+  {
+    "role": "assistant",
+    "content": "'Bapa' dalam Bahasa Menawi disebut 'Dai'."
+  },
+  {
+    "role": "user",
+    "content": "Apa arti 'mama' dalam Bahasa Menawi?"
+  },
+  {
+    "role": "assistant",
+    "content": "'Mama' dalam Bahasa Menawi disebut 'Ai'."
+  },
+
+
+
+  {
+    "role": "user",
+    "content": "Apa arti 'ikan' dalam Bahasa Menawi?"
+  },
+  {
+    "role": "assistant",
+    "content": "'Ikan' dalam Bahasa Menawi disebut 'Diang'."
+  },
+  {
+    "role": "user",
+    "content": "Apa arti 'kupu-kupu' dalam Bahasa Menawi?"
+  },
+  {
+    "role": "assistant",
+    "content": "'Kupu-Kupu' dalam Bahasa Menawi disebut 'Kamambo'."
+  },
+  {
+    "role": "user",
+    "content": "Apa arti 'baju' dalam Bahasa Menawi?"
+  },
+  {
+    "role": "assistant",
+    "content": "'Baju' dalam Bahasa Menawi disebut 'Asung'."
+  },
+  {
+    "role": "user",
+    "content": "Apa arti 'celana' dalam Bahasa Menawi?"
+  },
+  {
+    "role": "assistant",
+    "content": "'Celana' dalam Bahasa Menawi disebut 'Saranda'."
+  },
+  {
+    "role": "user",
+    "content": "Apa arti 'nyamuk' dalam Bahasa Menawi?"
+  },
+  {
+    "role": "assistant",
+    "content": "'Nyamuk' dalam Bahasa Menawi disebut 'Fikarari'."
+  },
+  {
+    "role": "user",
+    "content": "Bagaimana mengatakan 'selamat pagi' dalam Bahasa Menawi?"
+  },
+  {
+    "role": "assistant",
+    "content": "'Selamat Pagi' dalam Bahasa Menawi adalah 'Mahikai Kameai'."
+  },
+  {
+    "role": "user",
+    "content": "Bagaimana mengatakan 'selamat tahun baru' dalam Bahasa Menawi?"
+  },
+  {
+    "role": "assistant",
+    "content": "'Selamat Tahun Baru' dalam Bahasa Menawi adalah 'Mahikai Fuing Weworu'."
+  },
+  {
+    "role": "user",
+    "content": "Apa arti 'jalan' dalam Bahasa Menawi?"
+  },
+  {
+    "role": "assistant",
+    "content": "'Jalan' dalam Bahasa Menawi disebut 'Rang'."
+  },
+  {
+    "role": "user",
+    "content": "Apa arti 'bapa' dalam Bahasa Menawi?"
+  },
+  {
+    "role": "assistant",
+    "content": "'Bapa' dalam Bahasa Menawi disebut 'Dai'."
+  },
+  {
+    "role": "user",
+    "content": "Apa arti 'mama' dalam Bahasa Menawi?"
+  },
+  {
+    "role": "assistant",
+    "content": "'Mama' dalam Bahasa Menawi disebut 'Ai'."
+  },
+  {
+    "role": "user",
+    "content": "Apa arti 'anak' dalam Bahasa Menawi?"
+  },
+  {
+    "role": "assistant",
+    "content": "'Anak' dalam Bahasa Menawi disebut 'Arikang'."
   }
+
+  
 ]
