@@ -114,17 +114,23 @@
 
     // Load chat dari localStorage
     function loadChat() {
-      const saved = localStorage.getItem('chatHistory');
-      if (saved) {
-        chatBox.innerHTML = '';
-        JSON.parse(saved).forEach(msg => {
-          addMessage(msg.text, msg.sender);
+      fetch('chat.json')
+        .then(response => {
+          if (!response.ok) throw new Error('Gagal memuat data chat');
+          return response.json();
+        })
+        .then(data => {
+          chatBox.innerHTML = '';
+          data.forEach(msg => {
+            addMessage(msg.text, msg.sender);
+          });
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          // Jika gagal fetch, tampilkan default chat
+          addMessage('Halo', 'user');
+          addMessage('Hi, selamat datang! Apa yang bisa saya bantu?', 'bot');
         });
-      } else {
-        // pesan awal
-        addMessage('Halo', 'user');
-        addMessage('Hi, selamat datang! Apa yang bisa saya bantu?', 'bot');
-      }
     }
 
     function saveChat() {

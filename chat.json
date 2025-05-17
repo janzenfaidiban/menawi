@@ -1,0 +1,18 @@
+[
+  {
+    "text": "Halo",
+    "sender": "user"
+  },
+  {
+    "text": "Hi, selamat datang! Apa yang bisa saya bantu?",
+    "sender": "bot"
+  },
+  {
+    "text": "Perkenalkan diri Anda",
+    "sender": "user"
+  },
+  {
+    "text": "Saya adalah asisten AI belajar Bahasa Menawi. Silahkan bertanya!",
+    "sender": "bot"
+  }
+]
