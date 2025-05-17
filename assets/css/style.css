@@ -1,0 +1,26 @@
+body {
+      /* background: linear-gradient(to bottom right, #6b21a8, #4f46e5, #1e40af); */
+      background-color: #114551;
+      min-height: 100vh;
+      color: white;
+    }
+    .bg-chat {
+      background-color: #f8f9fa;
+    }
+
+    .text-cocolate {
+      color: #492d24;
+    }
+
+    .text-cocolate:hover {
+      color: #57372c;
+    }
+
+    .btn-cocolate {
+      background-color: #492d24;
+      color: white;
+    }
+
+    .btn-cocolate:hover {
+      background-color: #57372c;
+    }
