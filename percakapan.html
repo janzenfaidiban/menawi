@@ -92,8 +92,8 @@
   <script>
     const chatBox = document.getElementById('chatBox');
     const inputMessage = document.getElementById('inputMessage');
+    let trainingData = [];
 
-    // Tambah pesan ke tampilan
     function addMessage(text, sender) {
       const message = document.createElement('div');
       message.classList.add('message', sender);
@@ -102,7 +102,6 @@
       chatBox.scrollTop = chatBox.scrollHeight;
     }
 
-    // Simpan riwayat chat ke localStorage
     function saveChat() {
       const messages = [...chatBox.querySelectorAll('.message')].map(el => ({
         text: el.textContent,
@@ -111,42 +110,39 @@
       localStorage.setItem('chatHistory', JSON.stringify(messages));
     }
 
-    // Muat riwayat chat dari localStorage
-    let trainingData = [];
-    
+    function loadSavedChat() {
+      const saved = localStorage.getItem('chatHistory');
+      if (saved) {
+        const messages = JSON.parse(saved);
+        messages.forEach(m => addMessage(m.text, m.sender));
+      }
+    }
+
     async function loadChat() {
       try {
         const res = await fetch('training.json');
         const data = await res.json();
+        trainingData = data;
 
         chatBox.innerHTML = '';
-        data.forEach(msg => {
-          if (msg.role === 'user') {
-            addMessage(msg.content, 'user');
-          } else if (msg.role === 'assistant') {
-            addMessage(msg.content, 'bot');
-          } else if (msg.role === 'system') {
-            addMessage(msg.content, 'bot');
-          }
-        });
+        loadSavedChat();
+        if (!localStorage.getItem('chatHistory')) {
+          addMessage('Selamat datang di asisten belajar Bahasa Menawi. Silakan ajukan pertanyaan.', 'bot');
+        }
       } catch (error) {
         console.error('Gagal memuat training.json:', error);
-        // fallback default
-        // addMessage('Halo!', 'user');
         addMessage('Selamat datang di asisten belajar Bahasa Menawi. Silakan ajukan pertanyaan.', 'bot');
       }
     }
 
-    // Ambil jawaban dari Groq API
     async function getGroqReply(messageHistory) {
       const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
         method: 'POST',
         headers: {
-          'Authorization': 'Bearer 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', // Ganti dengan API key Groq Anda
+          'Authorization': 'Bearer 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',
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          // model: 'llama3-8b-8192',
           model: 'meta-llama/llama-4-scout-17b-16e-instruct',
           messages: messageHistory,
           temperature: 0.7
@@ -159,30 +155,31 @@
       return data.choices[0].message.content.trim();
     }
 
-    // Kirim pesan pengguna & dapatkan jawaban dari Groq
     async function sendMessage() {
+      if (trainingData.length === 0) {
+        addMessage('Maaf, data pelatihan belum dimuat. Silakan coba beberapa saat lagi.', 'bot');
+        return;
+      }
+
       const userText = inputMessage.value.trim();
       if (!userText) return;
 
       addMessage(userText, 'user');
       inputMessage.value = '';
 
-      const history = [...chatBox.querySelectorAll('.message')].map(el => ({
-        role: el.classList.contains('user') ? 'user' : 'assistant',
-        content: el.textContent
-      }));
+      const messageHistory = [...trainingData];
+      messageHistory.push({ role: 'user', content: userText });
 
-      history.push({ role: 'user', content: userText });
       addMessage('...', 'bot');
 
       try {
-        const reply = await getGroqReply(history);
-        chatBox.lastChild.remove(); // Hapus '...'
+        const reply = await getGroqReply(messageHistory);
+        chatBox.lastChild.remove();
         addMessage(reply, 'bot');
         saveChat();
       } catch (err) {
         console.error(err);
-        chatBox.lastChild.remove(); // Hapus '...'
+        chatBox.lastChild.remove();
         addMessage('Maaf, terjadi kesalahan saat menjawab.', 'bot');
       }
     }
